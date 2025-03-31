@@ -1,33 +1,33 @@
-import datetime
+import datetime,textwrap
 from src.config import DEFAULT_AUTHOR,DATE_FORMAT
 
 # writing files
 def write_template(fileName,fileDesc):
     date = datetime.datetime.now().strftime(DATE_FORMAT)
     template = f"""
-    --!strict
-    --[[
+--!strict
+--[[
     {fileName}.lua
     Author: {DEFAULT_AUTHOR}
     Created: {date}
     Last Modified: {date}
-    ----------------------------------------------
-    {fileDesc}
-    ]]
+----------------------------------------------
+    {textwrap.fill(text=fileDesc,width=50,subsequent_indent="   ")}
+]]
 
-    -- Services
+-- Services
 
-    -- Modules
+-- Modules
 
-    -- Variables
+-- Variables
 
-    -- Functions and Bindables
+-- Functions and Bindables
 
-    -- Setup
+-- Setup
 """
 
-    with open(f"{fileName}.lua","a") as file:
+    with open(f"templates/{fileName}.lua","w") as file:
         file.write(template)
     
-    print(f"Template '{fileName}.lua' has been written.")
+    print(f"Template 'templates/{fileName}.lua' has been written.")
     
