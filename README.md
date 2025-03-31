@@ -14,5 +14,9 @@ A python script to generate structured Luau script templates easily.
 ```
 python main.py
 ```
+Enter luau file name: <Name>
+Enter file description: <Desc>
+
+Template 'templates/<FileName>.lua' has been written.
 
 
