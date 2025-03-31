@@ -1,2 +1,2 @@
 DEFAULT_AUTHOR = "Your Name"
-DATE_FORMAT = "%d/%m/%Y"
+DATE_FORMAT = "%m/%d/%Y"
