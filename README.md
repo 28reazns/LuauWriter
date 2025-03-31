@@ -11,7 +11,7 @@ A python script to generate structured Luau script templates easily.
 - Clone this repository.
 
 ## Usage
-```python
+```bat
 python main.py
 Enter luau file name: 'fileName'
 Enter file description: 'fileDesc'
