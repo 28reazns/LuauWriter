@@ -18,7 +18,6 @@ Template 'templates/fileName.lua' has been written.
 ```
 ### Luau File Example:
 ```luau
-
 --!strict
 --[[
     test_script.lua
@@ -50,3 +49,10 @@ Template 'templates/fileName.lua' has been written.
 -- Setup
 
 ```
+
+## Building (Compiling to .exe)
+Using PyInstaller, run:
+```python
+python -m PyInstaller --onefile --icon=icon.ico --name="Luau Writer" --add-data "src/config.json;." --add-data "requirements.txt;." main.py
+```
+A build will be provided, however.
