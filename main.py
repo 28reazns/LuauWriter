@@ -1,5 +1,5 @@
 import sys, os
-import importlib.util
+import shutil
 import subprocess
 from src.generator import write_template
 # Get the directory of the script
@@ -36,7 +36,13 @@ if missing_modules and not getattr(sys,'frozen',False): #skip check if EXE
         os.system("cls")
     else:  # For macOS/Linux
         os.system("clear")
-
+else:
+    # Check if the config is already in AppData, otherwise copy it there
+    appdata_path = os.path.join(os.getenv('APPDATA'), 'LuauWriter', 'config.json')
+    if not os.path.exists(appdata_path):
+        # Copy the bundled config.json to AppData if it doesn't exist
+        config_path = os.path.join(sys._MEIPASS, 'config.json')
+        shutil.copy(config_path, appdata_path)  # Copy the bundled file to AppData
 def main():
     fileName = input("Enter luau file name: ")
     fileDescription = input("Enter file description: ")
