@@ -56,3 +56,13 @@ Using PyInstaller, run:
 python -m PyInstaller --onefile --icon=icon.ico --name="Luau Writer" --add-data "src/config.json;." --add-data "requirements.txt;." main.py
 ```
 A build will be provided, however.
+
+## How to edit Config.
+1. Find `%AppData%/Roaming/LuauWriter`
+2. Find `config.json`
+3. Change `Default Author` in: 
+    ```json 
+        "author": "Default Author"
+    ```
+    to whatever you'd like. *(You can also edit date-format)*
+4. Save your changes, and next time you create a template, it will use the information input there.

@@ -8,8 +8,8 @@ import datetime,textwrap,os,json
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 if getattr(sys,'frozen',False):
-    appDat = os.makedirs(os.path.join(os.getenv('APPDATA'), 'LuauWriter'),exist_ok=True)
-    Templates = os.makedirs(os.path.join(appDat,"Templates"),exist_ok=True)
+    os.makedirs(os.path.join(os.getenv('APPDATA'), 'LuauWriter'),exist_ok=True)
+    os.makedirs(os.path.join(os.getenv('APPDATA'), 'LuauWriter',"Templates"),exist_ok=True)
 
 # default configs
 default_config = {
@@ -22,7 +22,7 @@ default_config = {
 def get_config_path():
     if getattr(sys, 'frozen', False):  # If running as an executable
         # Check if the config is already in AppData, otherwise copy it there
-        appdata_path = os.path.join(appDat, 'config.json')
+        appdata_path = os.path.join(os.getenv('APPDATA'), 'LuauWriter', 'config.json')
         if not os.path.exists(appdata_path):
             # Copy the bundled config.json to AppData if it doesn't exist
             config_path = os.path.join(sys._MEIPASS, 'config.json')
@@ -42,7 +42,7 @@ DATE_FORMAT = config["date-format"]
 # writing files
 def write_template(fileName,fileDesc):
     if getattr(sys,'frozen',False): # check if EXE
-        filePath = os.path.join(Templates,f"{fileName}.lua")
+        filePath = os.path.join(os.getenv('APPDATA'), 'LuauWriter',"Templates",f"{fileName}.lua")
     else:
         filePath = f"templates/{fileName}.lua"
     date = datetime.datetime.now().strftime(DATE_FORMAT)
