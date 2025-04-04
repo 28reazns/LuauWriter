@@ -8,8 +8,8 @@ import datetime,textwrap,os,json
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 if getattr(sys,'frozen',False):
-    appDat = os.makedirs(os.getenv('APPDATA'), 'LuauWriter',exist_ok=True)
-    Templates = os.makedirs(appDat,"Templates",exist_ok=True)
+    appDat = os.makedirs(os.path.join(os.getenv('APPDATA'), 'LuauWriter'),exist_ok=True)
+    Templates = os.makedirs(os.path.join(appDat,"Templates"),exist_ok=True)
 
 # default configs
 default_config = {
